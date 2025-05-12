@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HYPERION VHS Glitch Core - Config v3</title> 
+    <title>TeXmExDeX VHS/Glitch-core</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Orbitron:wght@400;700&family=Audiowide&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -60,6 +60,7 @@
         .title-glitch-intense { animation: pulse var(--pulse-duration) ease-in-out 0s infinite alternate, glitch-intense var(--glitch-intense-duration) steps(4, end) 0s infinite; }
         @keyframes glitch-intense { 0% { transform: translate(6px, -4px) skewX(calc(-12deg * var(--master-intensity, 1) * 0.7)) skewY(calc(1deg * var(--master-intensity, 1))); text-shadow: 6px 3px 0 #00ffff, -6px -3px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 25% { transform: translate(-5px, 3px) skewX(calc(20deg * var(--master-intensity, 1))) skewY(calc(-1.5deg * var(--master-intensity, 1))); text-shadow: -4px 4px 0 #00ffff, 4px -4px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 50% { transform: translate(4px, -2px) skewX(calc(-15deg * var(--master-intensity, 1))) skewY(calc(2deg * var(--master-intensity, 1))); text-shadow: 5px -3px 0 #00ffff, -5px 3px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 75% { transform: translate(-3px, 5px) skewX(calc(25deg * var(--master-intensity, 1) * 0.8)) skewY(calc(-2.5deg * var(--master-intensity, 1))); text-shadow: -3px -3px 0 #00ffff, 3px 3px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 100% { transform: translate(5px, -3px) skewX(calc(-18deg * var(--master-intensity, 1))) skewY(calc(1.5deg * var(--master-intensity, 1))); text-shadow: 4px 2px 0 #00ffff, -4px -2px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } }
         @keyframes pulse { 0% { opacity: 1; } 50% { transform: scale(1.04); opacity: 0.85; } 100% { opacity: 1; } }
+        #footer { position: fixed; bottom: 10px; right: 10px; font-family: 'VT323', monospace; color: #0f0; font-size: 0.9em; text-shadow: 0 0 5px #0f0; z-index: 99; padding: 5px 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 5px; }
         /* --- END OF COMBINED CSS --- */
     </style>
 </head>
@@ -69,10 +70,11 @@
         <div class="content"><h1 class="title" id="mainTitle"></h1></div>
     </div>
     <button id="toggleControlsBtn">Hide Controls</button>
+    <div id="footer">TeXmExDeX type tools. 2025</div>
 
     <!-- Controls Panel -->
     <div id="controlsPanel">
-        <h3>HYPERION DIAGNOSTICS</h3>
+        <h3>TeXmExDeX VHS/Glitch-core</h3>
         <div class="control-group"> <label for="masterIntensity">Master Effect Intensity:</label> <input type="range" id="masterIntensity" min="0.1" max="3.0" step="0.1" value="1.0"> <span class="value-display" id="masterIntensityValue">1.0x</span> </div>
         <div class="control-group"> <label for="colorPalette">Color Palette Preset:</label> <select id="colorPalette"> <option value="custom">Custom</option> <option value="classic_red">Classic Red</option> <option value="matrix_green">Matrix Green</option> <option value="arcade_blue">Arcade Blue</option> <option value="amber_mono">Amber Monochrome</option> <option value="grayscale">Grayscale</option> </select> </div>
         <h4>Text Content & Appearance:</h4>
@@ -275,7 +277,7 @@
 
                  const htmlTemplate = `<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VHS Glitch Output</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Orbitron:wght@400;700&family=Audiowide&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TeXmExDeX VHS/Glitch-core</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Orbitron:wght@400;700&family=Audiowide&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root { ${Object.entries(cssVariables).map(([key, value]) => `    ${key}: ${value};`).join('\n')} }
 body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #000; position: relative; font-family: var(--main-font-family); color: #eee; }
@@ -289,6 +291,7 @@ ${titleClasses.includes('simulated-audio-pulse') ? `.title.simulated-audio-pulse
 .title span { display: block; line-height: 0.9; margin-bottom: -0.1em; }
 body::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(var(--scanline-color1) 50%, var(--scanline-color2) 50%); background-size: 100% var(--scanline-thickness); z-index: 1; pointer-events: none; animation: scanline-flicker 0.07s infinite alternate; opacity: var(--scanline-opacity); }
 @keyframes scanline-flicker { from { filter: brightness(0.95); } to { filter: brightness(1.05); } }
+#footer { position: fixed; bottom: 10px; right: 10px; font-family: 'VT323', monospace; color: #0f0; font-size: 0.9em; text-shadow: 0 0 5px #0f0; z-index: 99; padding: 5px 10px; background-color: rgba(0, 0, 0, 0.5); border-radius: 5px; }
 @keyframes glitch-base { 0%, 100% { transform: translate(0, 0); text-shadow: 1px 1px 0 rgba(0, 255, 255, 0.5), -1px -1px 0 rgba(255, 0, 255, 0.5), var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 20% { transform: translate(-1px, 1px); } 40% { transform: translate(1px, -1px); text-shadow: -1px 1px 0 rgba(0, 255, 255, 0.5), 1px -1px 0 rgba(255, 0, 255, 0.5), var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 60% { transform: translate(0, 0); text-shadow: 1px 1px 0 rgba(0, 255, 255, 0.5), -1px -1px 0 rgba(255, 0, 255, 0.5), var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 80% { transform: translate(1px, 1px); } }
 ${jsParams.triggerIntenseTextGlitchOnSignal || titleClasses.includes('title-glitch-intense') ? `.title-glitch-intense { animation: pulse var(--pulse-duration) ease-in-out 0s infinite alternate, glitch-intense var(--glitch-intense-duration) steps(4, end) 0s infinite; }` : '.title-glitch-intense {}'}
 @keyframes glitch-intense { 0% { transform: translate(6px, -4px) skewX(calc(-12deg * ${jsParams.masterIntensity} * 0.7)) skewY(calc(1deg * ${jsParams.masterIntensity})); text-shadow: 6px 3px 0 #00ffff, -6px -3px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 25% { transform: translate(-5px, 3px) skewX(calc(20deg * ${jsParams.masterIntensity})) skewY(calc(-1.5deg * ${jsParams.masterIntensity})); text-shadow: -4px 4px 0 #00ffff, 4px -4px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 50% { transform: translate(4px, -2px) skewX(calc(-15deg * ${jsParams.masterIntensity})) skewY(calc(2deg * ${jsParams.masterIntensity})); text-shadow: 5px -3px 0 #00ffff, -5px 3px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 75% { transform: translate(-3px, 5px) skewX(calc(25deg * ${jsParams.masterIntensity} * 0.8)) skewY(calc(-2.5deg * ${jsParams.masterIntensity})); text-shadow: -3px -3px 0 #00ffff, 3px 3px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } 100% { transform: translate(5px, -3px) skewX(calc(-18deg * ${jsParams.masterIntensity})) skewY(calc(1.5deg * ${jsParams.masterIntensity})); text-shadow: 4px 2px 0 #00ffff, -4px -2px 0 #ff00ff, var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color); } }
@@ -296,6 +299,7 @@ ${jsParams.triggerIntenseTextGlitchOnSignal || titleClasses.includes('title-glit
 </style></head>
 <body>
 <canvas id="simulationCanvas"></canvas><div class="content-wrapper"><div class="content"><h1 class="title ${titleClasses}" id="mainTitle">${titleSpansHTML}</h1></div></div>
+<div id="footer">TeXmExDeX type tools. 2025</div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('simulationCanvas'); const titleElement = document.getElementById('mainTitle'); const ctx = canvas.getContext('2d', { alpha: false }); const rootStyle = document.documentElement.style; 
@@ -319,23 +323,23 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 </html>`;
 
-                 // 6. Trigger Download
-                 try {
-                     const blob = new Blob([htmlTemplate], { type: 'text/html' });
-                     const link = document.createElement('a');
-                     link.href = URL.createObjectURL(blob);
-                     const suggestedFilename = textLines[0]?.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').substring(0, 20) || 'vhs_output'; 
-                     link.download = `${suggestedFilename}.html`;
-                     document.body.appendChild(link);
-                     link.click();
-                     document.body.removeChild(link);
-                     URL.revokeObjectURL(link.href);
-                     console.log("Standalone HTML generation successful.");
-                 } catch (e) {
-                     console.error("Error generating or downloading standalone HTML:", e);
-                     alert("Failed to generate standalone HTML file.");
-                 }
-             }
+         // 6. Trigger Download
+         try {
+             const blob = new Blob([htmlTemplate], { type: 'text/html' });
+             const link = document.createElement('a');
+             link.href = URL.createObjectURL(blob);
+             const suggestedFilename = textLines[0]?.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').substring(0, 20) || 'texmexdex_vhs_glitch'; 
+             link.download = `${suggestedFilename}.html`;
+             document.body.appendChild(link);
+             link.click();
+             document.body.removeChild(link);
+             URL.revokeObjectURL(link.href);
+             console.log("Standalone HTML generation successful.");
+         } catch (e) {
+             console.error("Error generating or downloading standalone HTML:", e);
+             alert("Failed to generate standalone HTML file.");
+         }
+    }
 
 
             // --- Panel Toggle ---
